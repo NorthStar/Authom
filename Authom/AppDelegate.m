@@ -1,12 +1,16 @@
 //
 //  AppDelegate.m
 //  Authom
+//  Goal: make better auth technology for payments etc
+//
 //
 //  Created by Mimee Xu on 2/21/15.
 //  Copyright (c) 2015 Mimee Xu. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +20,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Fabric with:@[TwitterKit]];
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+    self.viewController = [[ViewController alloc] init];
+    [self.viewController.view setBackgroundColor:[UIColor clearColor]];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+
+    [self.window setRootViewController:self.navigationController];
+
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

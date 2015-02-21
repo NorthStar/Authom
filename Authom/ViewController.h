@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THAuthViewController.h"
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong) THAuthViewController *authController;
+@property (nonatomic, strong) UIButton *authButton;
 
 @end
 
