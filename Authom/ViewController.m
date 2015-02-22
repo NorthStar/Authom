@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <TwitterKit/TwitterKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
 
@@ -20,18 +21,30 @@
     [self resetKeychain];
     
     [self.navigationController setTitle:@"Authom"];
+    [self.navigationController.navigationBar setHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     CGRect bounds = [self.view bounds];
-    CGRect buttonFrame = CGRectMake(0, bounds.size.height*2/3, bounds.size.width, 40);
+    CGRect buttonFrame = CGRectMake(20, bounds.size.height/2, bounds.size.width-40, 40);
+    CGRect selfieFrame = CGRectMake(0, bounds.size.height*4/5, bounds.size.width, 40);
+    //Selfie auth for other app
+    UIButton *selfieButton = [[UIButton alloc] initWithFrame:selfieFrame];
+    [selfieButton setBackgroundColor:[UIColor greenColor]];
+    selfieButton.layer.cornerRadius = 10;
+    selfieButton.clipsToBounds = YES;
+    [selfieButton setTitle:@"Verify Self" forState:UIControlStateNormal];
+    [selfieButton addTarget:self action:@selector(toSelfie) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:selfieButton];
     
     //My own auth button
     self.authButton = [[UIButton alloc] initWithFrame:buttonFrame];
-    [self.authButton setBackgroundColor:[UIColor blackColor]];
+    [self.authButton setBackgroundColor:[UIColor blueColor]];
 
     [self.authButton.titleLabel setTextColor:[UIColor grayColor]];
-    [self.authButton.titleLabel setText: @"AuthButton"];
-    [self.authButton setTitle:@"AuthButton" forState:UIControlStateNormal];
-    
+    [self.authButton setTitle:@"Verify Ownership" forState:UIControlStateNormal];
+    self.authButton.layer.cornerRadius = 10; // this value vary as per your desire
+    self.authButton.clipsToBounds = YES;
     [self.authButton addTarget:self action:@selector(onAuthButtonPress) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -67,16 +80,21 @@
                                                NSError *error) {
                                       // Inspect session/error objects
                                   }];
-    authenticateButton.center = self.view.center;
-    
-    
+    authenticateButton.center = CGPointMake(self.view.center.x,self.view.center.y/2);
+    authenticateButton.layer.cornerRadius = 10; // this value vary as per your desire
+    authenticateButton.clipsToBounds = YES;
     [self.view addSubview:authenticateButton];
 
+    
     [self.view addSubview:self.authButton];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
 }
 
 
+- (void)toSelfie {
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:@"EmojiPass://Money2020.EmojiPass"]];
+}
 - (void)onAuthButtonPress {
     self.authController = [[THAuthViewController alloc] init];
     

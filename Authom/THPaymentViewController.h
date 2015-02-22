@@ -19,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *nameField;
+@property (weak, nonatomic) IBOutlet UINavigationBar *nameNavBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end

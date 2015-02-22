@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" promptedForUpgradeToXcode5="NO" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" promptedForUpgradeToXcode5="NO">
     <dependencies>
         <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -10,7 +10,7 @@
             <objects>
                 <viewController storyboardIdentifier="chat" id="2" customClass="THPaymentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5ER-WH-MeG" customClass="UITouchTableView">
@@ -43,18 +43,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="5ER-WH-MeG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ARs-0P-bW7"/>
+                            <constraint firstItem="yCk-ST-3ke" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7DR-GJ-BDn"/>
                             <constraint firstItem="jDZ-g6-iFq" firstAttribute="top" secondItem="5ER-WH-MeG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Cg0-9E-ONs"/>
+                            <constraint firstItem="yCk-ST-3ke" firstAttribute="trailing" secondItem="5ER-WH-MeG" secondAttribute="trailing" type="default" id="F3u-yJ-GCN"/>
                             <constraint firstAttribute="bottom" secondItem="jDZ-g6-iFq" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="JIj-aC-Mtr"/>
-                            <constraint firstItem="jDZ-g6-iFq" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="SQD-7M-2hd"/>
+                            <constraint firstItem="5ER-WH-MeG" firstAttribute="leading" secondItem="yCk-ST-3ke" secondAttribute="leading" type="default" id="NcG-vb-adY"/>
                             <constraint firstItem="5ER-WH-MeG" firstAttribute="top" secondItem="yCk-ST-3ke" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="SU3-2S-ghk"/>
-                            <constraint firstItem="yCk-ST-3ke" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="WWN-Nc-5Ou"/>
-                            <constraint firstItem="yCk-ST-3ke" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="aPk-mz-rbp"/>
-                            <constraint firstAttribute="trailing" secondItem="jDZ-g6-iFq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gsm-2p-Num"/>
-                            <constraint firstItem="5ER-WH-MeG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="j10-hk-S0T"/>
+                            <constraint firstItem="yCk-ST-3ke" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Ta4-DS-ewD"/>
+                            <constraint firstItem="5ER-WH-MeG" firstAttribute="trailing" secondItem="jDZ-g6-iFq" secondAttribute="trailing" type="default" id="W6S-9g-7Tp"/>
+                            <constraint firstItem="5ER-WH-MeG" firstAttribute="leading" secondItem="jDZ-g6-iFq" secondAttribute="leading" type="default" id="jvL-Pk-vxN"/>
                             <constraint firstAttribute="trailing" secondItem="yCk-ST-3ke" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="tyq-pM-O8j"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mqr-TI-g8r"/>
                     <connections>
                         <outlet property="nameField" destination="yCk-ST-3ke" id="4Dg-mI-aUT"/>
                         <outlet property="tableView" destination="5ER-WH-MeG" id="18R-Ba-Dw8"/>
@@ -63,6 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="777" y="218"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
