@@ -7,6 +7,8 @@
 //
 
 #import "THPaymentViewController.h"
+#import <AFNetworking/AFNetworking.h>
+#import <Braintree/Braintree.h>
 
 @interface THPaymentViewController ()
 
@@ -24,14 +26,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)handleNetwork {
+    NSString *baseUrl = @"/token.json";
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:baseUrl
+      parameters:@{ @"server-auth": @"token", @"customer-session": @"session"}
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             // Setup braintree with responseObject[@"client_token"]
+             // self.braintree = [Braintree braintreeWithClientToken:responseObject[@"client_token"]];
+         }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             // Handle failure communicating with your server
+         }];
 }
-*/
 
 @end

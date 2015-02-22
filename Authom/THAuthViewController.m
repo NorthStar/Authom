@@ -10,8 +10,11 @@
 #import "THAuthViewController.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "SVProgressHUD.h"
+#import "THPaymentViewController.h"
 
 @interface THAuthViewController ()
+
+@property(nonatomic, strong)THPaymentViewController *paymentViewController;
 
 @end
 
@@ -20,9 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self authWithTouchID];
-    
-    [self existingPattern];
+    [self authWithTouchID];
     
 }
 
@@ -30,15 +31,41 @@
     LAContext *context = [[LAContext alloc] init];
     NSError *error = nil;
     
+    //Must look like it is being evaluated
+    [SVProgressHUD show];
+    
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         // Authenticate User
-        
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+                localizedReason:@"Are you the device owner?"
+                          reply:^(BOOL success, NSError *error) {
+                              
+                              // There is error
+                              if (error) {
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      [self handleError: error];
+                                  });
+                                  return;
+                              }
+                              
+                              if (success) {
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      [self handleSuccess];
+                                  });
+                              } else {
+                                  //NOT SUPPOSED TO HAPPEN??
+                                  // No error but no success either??
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      [SVProgressHUD dismiss];
+                                  });
+                              }
+                          }];
     } else {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"Your device cannot authenticate using TouchID."
+                                                        message:@"Your device cannot authenticate using TouchID. Try to contact vendor for a different authentication."
                                                        delegate:nil
-                                              cancelButtonTitle:@"Ok"
+                                              cancelButtonTitle:@"Got it"
                                               otherButtonTitles:nil];
         [alert show];
         
@@ -99,16 +126,22 @@
 
 - (void)handleSuccess {
     [SVProgressHUD dismiss];
+    
+    self.paymentViewController = [[THPaymentViewController alloc] init];
+    [self.navigationController pushViewController:self.paymentViewController animated:YES];
+    //actually evaluates the user, show 2fa
+    //before, say, photos
+
+    
+    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success"
                                                     message:@"You are the device owner!"
                                                    delegate:nil
                                           cancelButtonTitle:@"Ok"
                                           otherButtonTitles:nil];
     
-    [alert show];
+    [alert show];*/
     
-    //actually evaluates the user, show 2fa
-    //before, say, photos
     return;
 }
 - (void)handleError:(NSError *) error {
@@ -129,7 +162,7 @@
             errorMsg = @"TouchID is not enrolled";
             break;
         case LAErrorUserCancel:
-            errorMsg = @"User canceled";
+            errorMsg = @"You canceled authentication process";
             break;
         case LAErrorAuthenticationFailed:
             errorMsg = @"Authentication failed, please try again.";
@@ -141,7 +174,7 @@
             break;
     }
     //Specifies different types of error
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TouchID Error"
                                                         message:errorMsg
                                                        delegate:nil
                                               cancelButtonTitle:@"Ok"
