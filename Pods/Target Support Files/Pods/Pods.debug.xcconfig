@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Firebase"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+GCC_TREAT_WARNINGS_AS_ERRORS = YES
+GCC_WARN_ABOUT_MISSING_NEWLINE = YES
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Braintree" "${PODS_ROOT}/Headers/Public/CMDQueryStringSerialization" "${PODS_ROOT}/Headers/Public/Firebase" "${PODS_ROOT}/Headers/Public/SSKeychain" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/VENCore" "${PODS_ROOT}/Headers/Public/Venmo-iOS-SDK"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/Braintree/Braintree/PayPal/mSDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/Braintree" -isystem "${PODS_ROOT}/Headers/Public/CMDQueryStringSerialization" -isystem "${PODS_ROOT}/Headers/Public/Firebase" -isystem "${PODS_ROOT}/Headers/Public/SSKeychain" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/VENCore" -isystem "${PODS_ROOT}/Headers/Public/Venmo-iOS-SDK"
+OTHER_LDFLAGS = -ObjC -l"PayPalMobile" -l"Pods-AFNetworking" -l"Pods-Braintree" -l"Pods-CMDQueryStringSerialization" -l"Pods-Firebase" -l"Pods-SSKeychain" -l"Pods-SVProgressHUD" -l"Pods-VENCore" -l"Pods-Venmo-iOS-SDK" -l"c++" -l"icucore" -framework "AVFoundation" -framework "AddressBook" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMedia" -framework "Firebase" -framework "Foundation" -framework "MessageUI" -framework "MobileCoreServices" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -weak_framework "PassKit"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods
