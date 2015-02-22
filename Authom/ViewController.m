@@ -69,6 +69,7 @@
                                   }];
     authenticateButton.center = self.view.center;
     
+    
     [self.view addSubview:authenticateButton];
 
     [self.view addSubview:self.authButton];

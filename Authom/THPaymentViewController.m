@@ -11,7 +11,7 @@
 #import <Braintree/Braintree.h>
 
 
-#define kFirechatNS @"https://firechat-ios.firebaseio-demo.com/"
+#define kFirechatNS @"https://authom.firebaseio.com"
 
 @interface THPaymentViewController ()
 
@@ -20,17 +20,7 @@
 @end
 
 @implementation THPaymentViewController
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-*/
 - (void)handleNetwork {
     NSString *baseUrl = @"/token.json";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -133,20 +123,23 @@
 {
     NSDictionary* chatMessage = [self.chat objectAtIndex:indexPath.row];
     
-    NSString *text = chatMessage[@"text"];
-    
+    NSString *text = @"";
+    //add nullguard
+    if ([chatMessage class] == [NSDictionary class]) {
+        text = chatMessage[@"text"];
+    }
     // typical textLabel.frame = {{10, 30}, {260, 22}}
     const CGFloat TEXT_LABEL_WIDTH = 260;
     CGSize constraint = CGSizeMake(TEXT_LABEL_WIDTH, 20000);
     
     // typical textLabel.font = font-family: "Helvetica"; font-weight: bold; font-style: normal; font-size: 18px
-//    CGSize size = [text boundingRectWithSize:constraint options:nil attributes:@{} context:nil];
-    //CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping]; // requires iOS 6+
+    //    CGSize size = [text boundingRectWithSize:constraint options:nil attributes:@{} context:nil];
+   // CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
     
     
     CGRect textRect = [text boundingRectWithSize:constraint
                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:@{NSFontAttributeName: @"font"}
+                                      attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:18]}
                                          context:nil];
     
     CGSize size = textRect.size;

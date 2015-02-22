@@ -22,9 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     [self authWithTouchID];
-    
 }
 
 - (void)authWithTouchID {
@@ -127,8 +127,14 @@
 - (void)handleSuccess {
     [SVProgressHUD dismiss];
     
-    self.paymentViewController = [[THPaymentViewController alloc] init];
-    [self.navigationController pushViewController:self.paymentViewController animated:YES];
+    //Dumb chat init-ed from storyboard
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+    self.paymentViewController = [storyboard instantiateViewControllerWithIdentifier:@"chat"];
+    [self presentViewController:self.paymentViewController animated:YES completion:nil];
+    
+    
+ //   self.paymentViewController = [[THPaymentViewController alloc] init];
+ //   [self.navigationController pushViewController:self.paymentViewController animated:YES];
     //actually evaluates the user, show 2fa
     //before, say, photos
 
