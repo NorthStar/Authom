@@ -20,6 +20,8 @@
 		5415FF671A98F21300664165 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5415FF641A98F21300664165 /* TwitterKitResources.bundle */; };
 		5415FF681A98F21300664165 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5415FF651A98F21300664165 /* Fabric.framework */; };
 		5415FF6B1A9945F400664165 /* THPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5415FF6A1A9945F400664165 /* THPaymentViewController.m */; };
+		5415FF6E1A99DA5100664165 /* UITouchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5415FF6D1A99DA5100664165 /* UITouchTableView.m */; };
+		5415FF701A99DB8D00664165 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5415FF6F1A99DB8D00664165 /* iPhone.storyboard */; };
 		B98E21E71DD875BE4174903B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B43A56AC39A0FD234C665BFA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,9 @@
 		5415FF651A98F21300664165 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		5415FF691A9945F400664165 /* THPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPaymentViewController.h; sourceTree = "<group>"; };
 		5415FF6A1A9945F400664165 /* THPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPaymentViewController.m; sourceTree = "<group>"; };
+		5415FF6C1A99DA5100664165 /* UITouchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchTableView.h; sourceTree = "<group>"; };
+		5415FF6D1A99DA5100664165 /* UITouchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITouchTableView.m; sourceTree = "<group>"; };
+		5415FF6F1A99DB8D00664165 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		A54E43A1D1550B6D29510804 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AAEF631F3BE48B52D5CC3551 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B43A56AC39A0FD234C665BFA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +120,9 @@
 				5415FF3E1A988BA400664165 /* THAuthViewController.h */,
 				5415FF3F1A988BA400664165 /* THAuthViewController.m */,
 				5415FF691A9945F400664165 /* THPaymentViewController.h */,
+				5415FF6C1A99DA5100664165 /* UITouchTableView.h */,
+				5415FF6F1A99DB8D00664165 /* iPhone.storyboard */,
+				5415FF6D1A99DA5100664165 /* UITouchTableView.m */,
 				5415FF6A1A9945F400664165 /* THPaymentViewController.m */,
 				5415FF251A987FBF00664165 /* Images.xcassets */,
 				5415FF271A987FBF00664165 /* LaunchScreen.xib */,
@@ -254,6 +262,7 @@
 				5415FF611A98A83900664165 /* Podfile in Resources */,
 				5415FF291A987FBF00664165 /* LaunchScreen.xib in Resources */,
 				5415FF261A987FBF00664165 /* Images.xcassets in Resources */,
+				5415FF701A99DB8D00664165 /* iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +330,7 @@
 				5415FF6B1A9945F400664165 /* THPaymentViewController.m in Sources */,
 				5415FF401A988BA400664165 /* THAuthViewController.m in Sources */,
 				5415FF1B1A987FBF00664165 /* AppDelegate.m in Sources */,
+				5415FF6E1A99DA5100664165 /* UITouchTableView.m in Sources */,
 				5415FF211A987FBF00664165 /* ViewController.m in Sources */,
 				5415FF181A987FBF00664165 /* main.m in Sources */,
 			);
