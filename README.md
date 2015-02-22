@@ -2,6 +2,12 @@
 
 Robust authentication system that fits different levels of security and products. Most importantly, it is intuitive to use for an average user.
 
+##Screenshots
+
+http://imgur.com/a/87YB3
+
+## My pitch
+
 Many of us are mobile developers. Many of us have written sketchy things. Some sketchiness came from the frameworks, some …er deliberate, I would say. Insecure design decisions are present everywhere in mobile apps and services, exposing end users to many exploits. 
 
 So many app companies store all kinds of things from your purchasing history, your behavior with interfaces, to your behavior in other apps, social media tokens, your entire contact book, which by the way is giant because you allowed your own address book to sync from Facebook. The worst would be passwords. Passwords are broken, because no one knows how to use good keychain, yet so much of our infrastructure on mobile is either public or password-protected. On web, people compromise their internet identities and credit cards, but in mobile, people compromise their clothes, identity, blood, and credit cards. In other words, the mobile security space is a bleak Wild Wild West, and an average user is extremely likely to lose all privacy. So here is when Authom comes in, to empower the users with options to keep their privacy while being non-intrusive to their day-to-day lives.
@@ -33,7 +39,7 @@ The easiest layer is single sign-on, implemented using Twitter Digits to associa
 ## Challenges I ran into
 Making things pretty is rather hard.
 
-No teammates.
+No teammates. :(
 
 Didn't know how to make it into a product, per se
 
